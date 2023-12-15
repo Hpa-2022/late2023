@@ -13,8 +13,7 @@ class QuizSecondHome extends StatefulWidget {
 }
 
 class _QuizSecondHomeState extends State<QuizSecondHome> {
-  late String a, b, c, d, q, ans, answer;
-  late int img;
+  late String a, b, c, d, q, img, ans, answer;
   int point = 0, questionNo = 1;
   bool acorrect = false, bcorrect = false, ccorrect = false, dcorrect = false;
   Color abgBtnColor = Colors.white;
@@ -131,6 +130,13 @@ class _QuizSecondHomeState extends State<QuizSecondHome> {
                         color: Colors.amber),
                   ),
                 ),
+                img.isEmpty
+                    ? Container()
+                    : Center(
+                        child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                        child: SizedBox(height: 150, child: Image.asset(img)),
+                      )),
                 const SizedBox(
                   height: 16,
                 ),
@@ -358,6 +364,8 @@ class _QuizSecondHomeState extends State<QuizSecondHome> {
   void questionSet() {
     if (point < data.length) {
       setState(() {
+        checking = false;
+
         q = data[point].question;
         a = data[point].a;
         b = data[point].b;
@@ -368,7 +376,7 @@ class _QuizSecondHomeState extends State<QuizSecondHome> {
         answer = ans;
 
         seconds = maxSeconds;
-        checking = false;
+
         abgBtnColor = Colors.white;
         bbgBtnColor = Colors.white;
         cbgBtnColor = Colors.white;
@@ -440,7 +448,7 @@ class _QuizSecondHomeState extends State<QuizSecondHome> {
           displayAns(answer);
       }
     }
-    Timer(const Duration(seconds: 3), questionSet);
+    Timer(const Duration(seconds: 2), questionSet);
   }
 
   void displayAns(String answer) {

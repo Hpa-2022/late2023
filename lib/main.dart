@@ -13,6 +13,8 @@ import 'package:late2023/Page/Webview/webview.dart';
 import 'package:late2023/Page/button_flutter.dart';
 import 'package:late2023/Page/stack_page.dart';
 import 'package:late2023/Page/timer_page.dart';
+import 'package:late2023/Parameter_Passing/parameter_passing.dart';
+import 'package:late2023/TabBarView/tabbar_view.dart';
 import 'package:late2023/Theme/theme.dart';
 
 void main() {
@@ -291,6 +293,46 @@ class _MyHomePageState extends State<MyHomePage> {
                     MaterialPageRoute(
                         builder: (BuildContext context) =>
                             const AdmobTestPage()),
+                  ),
+                  shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(20))),
+                  selectedTileColor: Colors.orange[100],
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Material(
+                borderRadius: const BorderRadius.all(Radius.circular(20)),
+                child: ListTile(
+                  title: const Text(
+                    'TabbarView',
+                  ),
+                  tileColor: Colors.red,
+                  onTap: () => Navigator.of(context).push(
+                    MaterialPageRoute(
+                        builder: (BuildContext context) =>
+                            const TabbarViewPage()),
+                  ),
+                  shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(20))),
+                  selectedTileColor: Colors.orange[100],
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Material(
+                borderRadius: const BorderRadius.all(Radius.circular(20)),
+                child: ListTile(
+                  title: const Text(
+                    'Parameter Passign',
+                  ),
+                  tileColor: Colors.red,
+                  onTap: () => Navigator.of(context).push(
+                    MaterialPageRoute(
+                        builder: (BuildContext context) =>
+                            const ParameterPassingPage()),
                   ),
                   shape: const RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(Radius.circular(20))),
